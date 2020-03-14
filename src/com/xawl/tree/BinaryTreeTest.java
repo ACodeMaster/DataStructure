@@ -41,6 +41,25 @@ public class BinaryTreeTest {
             System.out.println("当前树是空树");
         }
     }
+    /*
+     * 删除方法
+     * @Date  2020/3/14 11:33
+     * @param data
+     * @return void
+     * 如果根节点恰好是要删除的节点，直接将根节点置为空
+     *
+     */
+    public void delNode(int data){
+        if(root!=null){
+            if(root.getData()==data){
+                root=null;
+            }else {
+                root.delNode(data);
+            }
+        }else{
+            System.out.println("这是空树，不能删除节点");
+        }
+    }
     public static void main(String[] args) {
         TreeNode root = new TreeNode(1);
         BinaryTreeTest bt = new BinaryTreeTest(root);
@@ -62,6 +81,9 @@ public class BinaryTreeTest {
         System.out.println();
         System.out.print("后序遍历：");
         bt.postorder();
+        System.out.println("==========");
+        bt.delNode(5);
+        bt.preorder();
     }
 }
 
